@@ -22,6 +22,8 @@ export default {
       }],
     },
     { name: "skills", type: "array", of: [{ type: "string" }] },
+
+    // BLOK PENGALAMAN KERJA
     {
       name: "experience",
       type: "array",
@@ -30,6 +32,40 @@ export default {
         fields: [
           { name: "company", type: "string" },
           { name: "role", type: "string" },
+          { name: "startDate", type: "string" },
+          { name: "endDate", type: "string" },
+          { name: "description", type: "text" },
+        ],
+      }],
+    },
+
+    // BLOK ORGANIZATION
+    {
+      name: "organizations",
+      title: "Organizations",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          { name: "organization", title: "Organization Name", type: "string" },
+          { name: "role", type: "string" },
+          { name: "startDate", type: "string" },
+          { name: "endDate", type: "string" },
+          { name: "description", type: "text" },
+        ],
+      }],
+    },
+
+    // BLOK STUDI / PENDIDIKAN
+    {
+      name: "studies",
+      title: "Studies / Education",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          { name: "institution", title: "Institution / University", type: "string" },
+          { name: "degree", title: "Degree / Major", type: "string" },
           { name: "startDate", type: "string" },
           { name: "endDate", type: "string" },
           { name: "description", type: "text" },
