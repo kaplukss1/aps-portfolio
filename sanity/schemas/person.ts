@@ -6,6 +6,7 @@ export default {
     { name: "name", type: "string", validation: (r: any) => r.required() },
     { name: "role", type: "string" },
     { name: "avatar", type: "image", options: { hotspot: true } },
+    { name: "logo", type: "image", options: { hotspot: true } },
     { name: "bio", type: "text" },
     { name: "email", type: "string" },
     { name: "location", type: "string" },

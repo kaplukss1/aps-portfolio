@@ -2,6 +2,8 @@ import { getPerson, getFeaturedProjects } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import Link from "next/link";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import ProfileButton from "@/components/ProfileButton";
+import Newsletter from "@/components/Newsletter";
 
 export const instant = false;
 
@@ -52,29 +54,13 @@ export default async function Home() {
       </p>
 
       {/* 4. TOMBOL PROFIL KAPSUL */}
-      <Link href="/about" style={{
-        display: "inline-flex", alignItems: "center", gap: 12,
-        padding: "8px 24px 8px 8px", borderRadius: 999,
-        border: "1px solid var(--border)",
-        background: "var(--bg)",
-        marginBottom: 80,
-      }}>
-        {person?.avatar ? (
-          <img
-            src={urlFor(person.avatar).width(48).height(48).url()}
-            alt={person.name}
-            style={{ width: 36, height: 36, borderRadius: "50%", objectFit: "cover" }}
-          />
-        ) : (
-          <div style={{ width: 36, height: 36, borderRadius: "50%", background: "var(--border)" }} />
-        )}
-        <span style={{ fontSize: 15, fontWeight: 500, color: "var(--fg)" }}>
-          About — {person?.name || "Me"}
-        </span>
-      </Link>
+      <ProfileButton person={person} />
 
       {/* 5. CAROUSEL DATAR */}
       <ProjectCarousel projects={projects} />
+
+      {/* 6. NEWSLETTER */}
+      <Newsletter name={person?.name || "My"} />
 
     </div>
   );

@@ -28,7 +28,7 @@ export default function ProjectCarousel({ projects }: { projects: any[] }) {
     return (
         <div style={{
             position: "relative",
-            width: "80%",
+            width: "90%",
             maxWidth: 1000, // Ukuran maksimal carousel
             margin: "0 auto 80px", // Center dan beri jarak bawah
             borderRadius: 24,

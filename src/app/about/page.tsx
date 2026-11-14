@@ -17,9 +17,15 @@ export default async function About() {
 
       {person?.avatar && (
         <img
-          src={urlFor(person.avatar).width(300).url()}
+          src={urlFor(person.avatar).width(400).url()}
           alt={person.name}
-          style={{ borderRadius: 20, marginBottom: 32, width: "100%", maxWidth: 250 }}
+          style={{
+            width: 160,           // Ukuran lebih kecil dan pas
+            height: 160,          // Paksa tingginya sama
+            borderRadius: "50%",  // Ubah jadi bulat sempurna
+            objectFit: "cover",   // Agar foto tidak gepeng
+            marginBottom: 24
+          }}
         />
       )}
 
