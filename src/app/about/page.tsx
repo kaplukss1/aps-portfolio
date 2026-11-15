@@ -124,7 +124,71 @@ export default async function About() {
           </p>
         </section>
 
-        {/* 2. Work Experience */}
+        {/* 2. Studies */}
+        {person?.studies && person.studies.length > 0 && (
+          <section id="studies" style={{ marginBottom: 60 }}>
+            <h2 style={{ fontSize: 36, fontWeight: 700, letterSpacing: "-0.03em", marginBottom: 32 }}>
+              Studies
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+              {person.studies.map((edu: any, idx: number) => (
+                <div key={idx} style={{
+                  display: "flex", justifyContent: "space-between",
+                  alignItems: "flex-start", flexWrap: "wrap", gap: 16,
+                  paddingBottom: 24, borderBottom: "1px solid var(--border)"
+                }}>
+                  <div>
+                    <h3 style={{ fontSize: 24, fontWeight: 700, margin: "0 0 8px" }}>
+                      {edu.institution}
+                    </h3>
+
+                    {/* Pembungkus Degree & GPA */}
+                    <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+                      <p style={{ fontSize: 16, color: "#3b82f6", margin: 0, fontWeight: 500 }}>
+                        {edu.degree}
+                      </p>
+
+                      {/* Badge GPA */}
+                      {edu.gpa && (
+                        <span style={{
+                          fontSize: 13,
+                          padding: "2px 8px",
+                          borderRadius: 6,
+                          border: "1px solid var(--border)",
+                          background: "var(--bg-elevated)",
+                          fontWeight: 600
+                        }}>
+                          GPA: {edu.gpa}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Deskripsi dengan whiteSpace */}
+                    {edu.description && (
+                      <p style={{
+                        fontSize: 15,
+                        color: "var(--fg-muted)",
+                        marginTop: 12,
+                        maxWidth: 500,
+                        lineHeight: 1.6,
+                        whiteSpace: "pre-wrap"
+                      }}>
+                        {edu.description}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Tanggal */}
+                  <div style={{ fontSize: 16, color: "var(--fg-muted)", fontWeight: 500 }}>
+                    {edu.startDate} — {edu.endDate || "Present"}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 3. Work Experience */}
         {person?.experience && person.experience.length > 0 && (
           <section id="experience" style={{ marginBottom: 60 }}>
             <h2 style={{ fontSize: 36, fontWeight: 700, letterSpacing: "-0.03em", marginBottom: 32 }}>
@@ -144,7 +208,7 @@ export default async function About() {
                     <p style={{ fontSize: 16, color: "#3b82f6", margin: 0, fontWeight: 500 }}>
                       {exp.role}
                     </p>
-                    <p style={{ fontSize: 15, color: "var(--fg-muted)", marginTop: 12, maxWidth: 500 }}>
+                    <p style={{ fontSize: 15, color: "var(--fg-muted)", marginTop: 12, maxWidth: 500, lineHeight: 1.6, whiteSpace: "pre-wrap" }}>
                       {exp.description}
                     </p>
                   </div>
@@ -157,7 +221,7 @@ export default async function About() {
           </section>
         )}
 
-        {/* 3. Organization Experience */}
+        {/* 4. Organization Experience */}
         {person?.organizations && person.organizations.length > 0 && (
           <section id="organization" style={{ marginBottom: 60 }}>
             <h2 style={{ fontSize: 36, fontWeight: 700, letterSpacing: "-0.03em", marginBottom: 32 }}>
@@ -177,7 +241,10 @@ export default async function About() {
                     <p style={{ fontSize: 16, color: "#3b82f6", margin: 0, fontWeight: 500 }}>
                       {org.role}
                     </p>
-                    <p style={{ fontSize: 15, color: "var(--fg-muted)", marginTop: 12, maxWidth: 500 }}>
+                    <p style={{
+                      fontSize: 15, color: "var(--fg-muted)", marginTop: 12, maxWidth: 500, lineHeight: 1.6,
+                      whiteSpace: "pre-wrap"
+                    }}>
                       {org.description}
                     </p>
                   </div>
@@ -190,57 +257,52 @@ export default async function About() {
           </section>
         )}
 
-        {/* 4. Studies */}
-        {person?.studies && person.studies.length > 0 && (
-          <section id="studies" style={{ marginBottom: 60 }}>
-            <h2 style={{ fontSize: 36, fontWeight: 700, letterSpacing: "-0.03em", marginBottom: 32 }}>
-              Studies
-            </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
-              {person.studies.map((edu: any, idx: number) => (
-                <div key={idx} style={{
-                  display: "flex", justifyContent: "space-between",
-                  alignItems: "flex-start", flexWrap: "wrap", gap: 16,
-                  paddingBottom: 24, borderBottom: "1px solid var(--border)"
-                }}>
-                  <div>
-                    <h3 style={{ fontSize: 24, fontWeight: 700, margin: "0 0 8px" }}>
-                      {edu.institution}
-                    </h3>
-                    <p style={{ fontSize: 16, color: "#3b82f6", margin: 0, fontWeight: 500 }}>
-                      {edu.degree}
-                    </p>
-                    {edu.description && (
-                      <p style={{ fontSize: 15, color: "var(--fg-muted)", marginTop: 12, maxWidth: 500 }}>
-                        {edu.description}
-                      </p>
-                    )}
-                  </div>
-                  <div style={{ fontSize: 16, color: "var(--fg-muted)", fontWeight: 500 }}>
-                    {edu.startDate} — {edu.endDate || "Present"}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
         {/* 5. Technical Skills */}
         {person?.skills && person.skills.length > 0 && (
-          <section id="skills">
+          <section id="skills" style={{ marginBottom: 60 }}>
             <h2 style={{ fontSize: 36, fontWeight: 700, letterSpacing: "-0.03em", marginBottom: 32 }}>
               Technical Skills
             </h2>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-              {person.skills.map((skill: string) => (
-                <span key={skill} style={{
-                  padding: "10px 20px", borderRadius: 12,
-                  border: "1px solid var(--border)",
-                  background: "var(--bg-elevated)",
-                  fontSize: 15, fontWeight: 500
-                }}>
-                  {skill}
-                </span>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+              {person.skills.map((skill: any, idx: number) => (
+                <div key={idx} style={{ paddingBottom: 24, borderBottom: "1px solid var(--border)" }}>
+
+                  {/* Judul Skill */}
+                  <h3 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 8px", color: "var(--fg)" }}>
+                    {skill.title}
+                  </h3>
+
+                  {/* Deskripsi Skill */}
+                  {skill.description && (
+                    <p style={{ fontSize: 16, color: "var(--fg-muted)", margin: "0 0 16px", lineHeight: 1.6 }}>
+                      {skill.description}
+                    </p>
+                  )}
+
+                  {/* Tags (Tombol-tombol kecil) */}
+                  {skill.tags && skill.tags.length > 0 && (
+                    <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                      {skill.tags.map((tag: string) => (
+                        <span key={tag} style={{
+                          padding: "6px 14px",
+                          borderRadius: 999,
+                          border: "1px solid var(--border)",
+                          background: "var(--bg)",
+                          fontSize: 14,
+                          color: "var(--fg)",
+                          fontWeight: 500,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 6
+                        }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                </div>
               ))}
             </div>
           </section>

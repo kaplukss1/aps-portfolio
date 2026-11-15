@@ -21,7 +21,24 @@ export default {
         ],
       }],
     },
-    { name: "skills", type: "array", of: [{ type: "string" }] },
+
+    // BLOK STUDI / PENDIDIKAN
+    {
+      name: "studies",
+      title: "Studies / Education",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          { name: "institution", title: "Institution / University", type: "string" },
+          { name: "degree", title: "Degree / Major", type: "string" },
+           { name: "gpa", title: "GPA / IPK", type: "string" },
+          { name: "startDate", type: "string" },
+          { name: "endDate", type: "string" },
+          { name: "description", type: "text" },
+        ],
+      }],
+    },
 
     // BLOK PENGALAMAN KERJA
     {
@@ -56,19 +73,17 @@ export default {
       }],
     },
 
-    // BLOK STUDI / PENDIDIKAN
+    // BLOK SKILLS
     {
-      name: "studies",
-      title: "Studies / Education",
+      name: "skills",
+      title: "Technical Skills",
       type: "array",
       of: [{
         type: "object",
         fields: [
-          { name: "institution", title: "Institution / University", type: "string" },
-          { name: "degree", title: "Degree / Major", type: "string" },
-          { name: "startDate", type: "string" },
-          { name: "endDate", type: "string" },
-          { name: "description", type: "text" },
+          { name: "title", title: "Skill Name (e.g. Next.js)", type: "string" },
+          { name: "description", title: "Description", type: "text" },
+          { name: "tags", title: "Tools/Tags (e.g. JavaScript, Supabase)", type: "array", of: [{ type: "string" }] },
         ],
       }],
     },
