@@ -7,9 +7,9 @@ export default function AboutNav() {
 
     const links = [
         { id: "intro", label: "Introduction" },
+        { id: "studies", label: "Studies" },
         { id: "experience", label: "Work Experience" },
         { id: "organization", label: "Organization" },
-        { id: "studies", label: "Studies" },
         { id: "skills", label: "Technical skills" },
     ];
 
