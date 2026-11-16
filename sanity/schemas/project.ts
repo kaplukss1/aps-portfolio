@@ -4,7 +4,7 @@ export default {
   type: "document",
   fields: [
     { name: "title", type: "string", validation: (r: any) => r.required() },
-    { name: "slug", type: "slug", options: { source: "title" } },
+    { name: "slug", type: "slug", options: { source: "title" }, validation: (r: any) => r.required().error("Slug wajib diisi! Silakan klik tombol 'Generate'.") },
     { name: "summary", type: "text", title: "Short Summary (Tampil di Card)" },
     { name: "coverImage", type: "image", options: { hotspot: true } },
     { name: "tags", type: "array", of: [{ type: "string" }] },

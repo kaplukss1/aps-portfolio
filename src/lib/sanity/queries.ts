@@ -24,3 +24,15 @@ export const getProjectBySlug = async (slug: string) => {
   cacheLife("minutes");
   return client.fetch(`*[_type == "project" && slug.current == $slug][0]`, { slug });
 };
+
+export const getPosts = async () => {
+  "use cache"; 
+  cacheLife("minutes");
+  return client.fetch(`*[_type == "post"] | order(publishedAt desc)`);
+};
+
+export const getPostBySlug = async (slug: string) => {
+  "use cache"; 
+  cacheLife("minutes");
+  return client.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug });
+};
