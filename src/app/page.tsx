@@ -3,7 +3,7 @@ import { urlFor } from "@/lib/sanity/image";
 import Link from "next/link";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import ProfileButton from "@/components/ProfileButton";
-import Newsletter from "@/components/Newsletter";
+import Connect from "@/components/Connect";
 
 export const instant = false;
 
@@ -59,9 +59,8 @@ export default async function Home() {
       {/* 5. CAROUSEL DATAR */}
       <ProjectCarousel projects={projects} />
 
-      {/* 6. NEWSLETTER */}
-      <Newsletter name={person?.name || "My"} />
-
+       {/* 6. LET'S CONNECT */}
+      <Connect person={person} />
     </div>
   );
 }
