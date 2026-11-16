@@ -1,5 +1,11 @@
 import { getProjects } from "@/lib/sanity/queries";
 import ProjectCard from "@/components/ProjectCard";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Explore the portfolio of projects designed and developed by Andika Prayoga.",
+};
 
 export const instant = false;
 

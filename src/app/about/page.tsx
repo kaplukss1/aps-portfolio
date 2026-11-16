@@ -2,6 +2,12 @@ import { getPerson } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import SocialIcon from "@/components/SocialIcon";
 import AboutNav from "@/components/AboutNav";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Learn more about Andika Prayoga, his background, work experience, and technical skills.",
+};
 
 export const instant = false;
 

@@ -2,24 +2,32 @@ import { getPostBySlug } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import PortableText from "@/components/PortableText";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 
 export const instant = false;
 
 // Generate SEO dinamis per artikel
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  
+
   if (!post) return { title: "Post Not Found" };
-  
+
+  const previousImages = (await parent).openGraph?.images || [];
+  const ogImage = post.coverImage 
+    ? urlFor(post.coverImage).width(1200).height(630).url() 
+    : "/og-image.jpg";
+
   return {
     title: post.title,
-    description: post.excerpt,
+    description: post.excerpt || `Article by Andika Prayoga: ${post.title}`,
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: post.coverImage ? [urlFor(post.coverImage).width(1200).height(630).url()] : [],
+      images: [ogImage, ...previousImages],
     },
   };
 }

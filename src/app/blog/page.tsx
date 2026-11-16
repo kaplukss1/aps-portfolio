@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { getPosts } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Thoughts, tutorials, and stories about design, development, and technology by Andika Prayoga.",
+};
 
 export const instant = false;
 

@@ -2,6 +2,32 @@ import { getProjectBySlug } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import { notFound } from "next/navigation";
 import ProjectGallery from "@/components/ProjectGallery";
+import type { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
+
+  if (!project) return { title: "Project Not Found" };
+
+  const previousImages = (await parent).openGraph?.images || [];
+  const ogImage = project.coverImage 
+    ? urlFor(project.coverImage).width(1200).height(630).url() 
+    : "/og-image.jpg";
+
+  return {
+    title: project.title,
+    description: project.summary || `Project by Andika Prayoga: ${project.title}`,
+    openGraph: {
+      title: project.title,
+      description: project.summary,
+      images: [ogImage, ...previousImages],
+    },
+  };
+}
 
 export const instant = false;
 
