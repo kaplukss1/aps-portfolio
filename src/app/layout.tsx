@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://aps-portfolio-gules.vercel.app"), // GANTI URL INI
   title: {
-    default: "Andika Prayoga | Product Designer & Developer",
+    default: "Andika Prayoga | Frontend Developer",
     template: "%s | Andika Prayoga" // Jika di halaman About, judulnya jadi "About | Andika Prayoga"
   },
   description: "Portfolio of Andika Prayoga. A Product Designer and Developer crafting intuitive user experiences and building digital products.",
