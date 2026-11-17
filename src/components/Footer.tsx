@@ -39,7 +39,7 @@ export default async function Footer() {
                     <span style={{ color: "var(--fg)" }}>{person?.name || "Your Name"}</span>
                     <span>/</span>
                     <span>
-                        Build With ❤️
+                        Build with ❤️
                     </span>
                 </div>
 

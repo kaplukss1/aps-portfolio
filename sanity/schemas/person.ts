@@ -9,6 +9,7 @@ export default {
     { name: "logo", type: "image", options: { hotspot: true } },
     { name: "bio", type: "text" },
     { name: "email", type: "string" },
+    { name: "cvUrl", title: "URL CV / Resume (Link Google Drive / PDF)", type: "url" },
     { name: "location", type: "string" },
     {
       name: "socials",

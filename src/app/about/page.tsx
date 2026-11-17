@@ -119,7 +119,21 @@ export default async function About() {
                 Email
               </a>
             )}
+
+            {/* TAMBAHKAN TOMBOL CV DI SINI */}
+            {person?.cvUrl && (
+              <a href={person.cvUrl} target="_blank" rel="noreferrer" style={{
+                display: "flex", alignItems: "center", gap: 8,
+                padding: "8px 16px", borderRadius: 999,
+                border: "1px solid var(--border)", background: "var(--bg-elevated)",
+                fontSize: 14, fontWeight: 500, color: "var(--fg)", textDecoration: "none"
+              }}>
+                <span>📄</span> Download CV
+              </a>
+            )}
           </div>
+
+
 
           {/* Bio */}
           <p style={{

@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://aps-portfolio-gules.vercel.app"), // GANTI URL INI
   title: {
-    default: "Andika Prayoga | Frontend Developer",
+    default: "Andika Prayoga | Frontend Developer & UI Designer",
     template: "%s | Andika Prayoga" // Jika di halaman About, judulnya jadi "About | Andika Prayoga"
   },
   description: "Portfolio of Andika Prayoga. A Product Designer and Developer crafting intuitive user experiences and building digital products.",
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     url: "https://aps-portfolio-gules.vercel.app", // GANTI URL INI
-    title: "Andika Prayoga | Product Designer & Developer",
-    description: "Crafting intuitive user experiences and building digital products.",
+    title: "Andika Prayoga | Frontend Developer & UI Designer",
+    description: "Crafting intuitive user interfaces and building digital products.",
     siteName: "Andika Prayoga Portfolio",
     images: [{
       url: "/og-image.jpg", // Pastikan kamu punya gambar ini di folder public
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Andika Prayoga | Product Designer & Developer",
+    title: "Andika Prayoga | Frontend Developer & UI Designer",
     description: "Crafting intuitive user experiences and building digital products.",
     images: ["/og-image.jpg"],
   },

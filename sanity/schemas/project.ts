@@ -9,17 +9,33 @@ export default {
     { name: "coverImage", type: "image", options: { hotspot: true } },
     { name: "tags", type: "array", of: [{ type: "string" }] },
     { name: "publishedAt", type: "datetime" },
-    
+    {
+      name: "subtitle",
+      title: "Subtitle / Label (misal: Personal Project · UI Design)",
+      type: "string"
+    },
+    {
+      name: "role",
+      title: "Role (misal: Lead Designer)",
+      type: "string"
+    },
+    {
+      name: "tools",
+      title: "Tools Used (Tekan Enter untuk menambah)",
+      type: "array",
+      of: [{ type: "string" }]
+    },
+
     // --- BAGIAN BRIEF ---
     {
       name: "brief",
       title: "Project Brief",
       type: "object",
       fields: [
-        { name: "background", title: "Latar Belakang", type: "text" },
-        { name: "goals", title: "Tujuan", type: "text" },
-        { name: "problems", title: "Permasalahan", type: "text" },
-        { name: "solutions", title: "Solusi", type: "text" },
+        { name: "background", title: "Background", type: "text" },
+        { name: "goals", title: "Goals", type: "text" },
+        { name: "problems", title: "Problems", type: "text" },
+        { name: "solutions", title: "Solutions", type: "text" },
       ],
     },
 
@@ -55,6 +71,6 @@ export default {
     // { name: "content", type: "array", of: [{ type: "block" }, { type: "image" }] },
     // { name: "liveUrl", type: "url" },
     // { name: "repoUrl", type: "url" },
-    
+
   ],
 };
