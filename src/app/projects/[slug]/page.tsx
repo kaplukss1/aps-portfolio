@@ -7,14 +7,14 @@ import type { Metadata } from "next";
 export const instant = false;
 
 export default async function ProjectDetail({ params }: { params: { slug: string } }) {
-  const { slug } = await params; 
+  const { slug } = await params;
   const project = await getProjectBySlug(slug);
 
   if (!project) notFound();
 
   return (
     <article className="container" style={{ maxWidth: 900 }}>
-      
+
       {/* 1. JUDUL PROJECT (H1) */}
       <h1 style={{ fontSize: "clamp(32px, 6vw, 56px)", fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 16, lineHeight: 1.1 }}>
         {project.title}
@@ -42,14 +42,14 @@ export default async function ProjectDetail({ params }: { params: { slug: string
       )}
 
       {/* 5. ROLE & TOOLS */}
-      <div style={{ 
-        display: "grid", 
-        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", 
-        gap: 32, 
-        padding: "24px 0", 
-        borderTop: "1px solid var(--border)", 
-        borderBottom: "1px solid var(--border)", 
-        marginBottom: 60 
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+        gap: 32,
+        padding: "24px 0",
+        borderTop: "1px solid var(--border)",
+        borderBottom: "1px solid var(--border)",
+        marginBottom: 60
       }}>
         <div>
           <p style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", color: "var(--fg-muted)", marginBottom: 8, letterSpacing: 1 }}>
@@ -91,7 +91,8 @@ export default async function ProjectDetail({ params }: { params: { slug: string
               project.brief[key] && (
                 <div key={key} style={{ padding: 24, background: "var(--bg-elevated)", borderRadius: 16, border: "1px solid var(--border)" }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, textTransform: "capitalize", marginBottom: 12 }}>
-                    {key === "background" ? "Latar Belakang" : key === "goals" ? "Tujuan" : key === "problems" ? "Permasalahan" : "Solusi"}
+                    {/* UBAH BAHASA MENJADI INGGRIS DI SINI */}
+                    {key === "background" ? "Background" : key === "goals" ? "Goals" : key === "problems" ? "Problems" : "Solutions"}
                   </h3>
                   <p style={{ fontSize: 15, lineHeight: 1.6, margin: 0, whiteSpace: "pre-wrap" }}>
                     {project.brief[key]}

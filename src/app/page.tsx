@@ -31,7 +31,7 @@ export default async function Home() {
         maxWidth: 900,
         color: "var(--fg)"
       }}>
-        Building bridges between design and code
+        Design, build, and keep websites running
       </h1>
 
       {/* 2. SUBTITLE */}
@@ -44,7 +44,7 @@ export default async function Home() {
         margin: "24px auto 40px",
         lineHeight: 1.5
       }}>
-        I'm {person?.name || "Your Name"}, a {person?.role || "Developer"} at <strong style={{ color: "var(--fg)" }}>Once UI</strong>, where I craft intuitive user experiences. After hours, I build my own projects.
+        I'm {person?.name || "Your Name"}, a {person?.role } and UI Designer who also knows what it takes to keep a website running: content, ads, and day-to-day user support. I like turning ideas into interfaces that are clear and reliable. 
       </p>
 
       {/* 3. TOMBOL HERO (BARU: Download CV & Hubungi Saya) */}
