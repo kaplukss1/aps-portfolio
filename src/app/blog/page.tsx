@@ -29,39 +29,73 @@ export default async function Blog() {
         <p style={{ color: "var(--fg-muted)" }}>Belum ada artikel yang ditulis.</p>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
-          {posts.map((post: any) => (
-            <Link key={post._id} href={`/blog/${post.slug.current}`}>
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: post.coverImage ? "minmax(150px, 250px) 1fr" : "1fr",
-                gap: 24,
-                paddingBottom: 32,
-                borderBottom: "1px solid var(--border)",
-                alignItems: "center"
-              }}>
-                {post.coverImage && (
-                  <img
-                    src={urlFor(post.coverImage).width(500).height(300).url()}
-                    alt={post.title}
-                    style={{ borderRadius: 16, width: "100%", aspectRatio: "16/10", objectFit: "cover" }}
-                  />
-                )}
-                <div>
-                  <div style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 8 }}>
-                    {new Date(post.publishedAt).toLocaleDateString("id-ID", { day: 'numeric', month: 'long', year: 'numeric' })}
+          {posts.map((post: any) => {
+            if (!post.slug?.current) return null; 
+
+            return (
+              <Link key={post._id} href={`/blog/${post.slug.current}`}>
+                {/* Menggunakan class 'blog-card' agar rapi */}
+                <div className="blog-card">
+                  
+                  {post.coverImage && (
+                    <img
+                      src={urlFor(post.coverImage).width(500).height(300).url()}
+                      alt={post.title}
+                      className="blog-image"
+                    />
+                  )}
+                  
+                  <div>
+                    <div style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 8 }}>
+                      {new Date(post.publishedAt).toLocaleDateString("id-ID", { day: 'numeric', month: 'long', year: 'numeric' })}
+                    </div>
+                    <h2 style={{ fontSize: 24, fontWeight: 700, margin: "0 0 12px", letterSpacing: "-0.02em", lineHeight: 1.3 }}>
+                      {post.title}
+                    </h2>
+                    <p style={{ fontSize: 16, color: "var(--fg-muted)", margin: 0, lineHeight: 1.6 }}>
+                      {post.excerpt}
+                    </p>
                   </div>
-                  <h2 style={{ fontSize: 24, fontWeight: 700, margin: "0 0 12px", letterSpacing: "-0.02em" }}>
-                    {post.title}
-                  </h2>
-                  <p style={{ fontSize: 16, color: "var(--fg-muted)", margin: 0, lineHeight: 1.6 }}>
-                    {post.excerpt}
-                  </p>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       )}
+
+      {/* CSS Khusus untuk Merapikan Tampilan Mobile */}
+      <style>{`
+        .blog-card {
+          display: grid;
+          grid-template-columns: minmax(150px, 250px) 1fr;
+          gap: 24px;
+          padding-bottom: 32px;
+          border-bottom: 1px solid var(--border);
+          align-items: center;
+        }
+
+        .blog-image {
+          border-radius: 16px;
+          width: 100%;
+          aspect-ratio: 16/10;
+          object-fit: cover;
+        }
+
+        /* Jika layar HP (di bawah 768px), ubah jadi 1 kolom (tumpuk ke bawah) */
+        @media (max-width: 768px) {
+          .blog-card {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+          .blog-image {
+            aspect-ratio: 16/9;
+            max-height: 250px;
+          }
+          h2 {
+            font-size: 20px !important; /* Perkecil sedikit judul di HP */
+          }
+        }
+      `}</style>
     </div>
   );
 }

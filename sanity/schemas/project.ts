@@ -49,11 +49,12 @@ export default {
     { name: "isDemoActive", title: "Tampilkan Tombol Demo?", type: "boolean", initialValue: false },
     { name: "demoUrl", title: "URL Demo / Figma Prototype", type: "url" },
     { name: "demoLabel", title: "Label Tombol (misal: View Prototype)", type: "string", initialValue: "Live Demo" },
+    { name: "featured", type: "boolean", initialValue: false },
 
-    // // Field lama tetap dibiarkan
+    // Field lama tetap dibiarkan
     // { name: "content", type: "array", of: [{ type: "block" }, { type: "image" }] },
     // { name: "liveUrl", type: "url" },
     // { name: "repoUrl", type: "url" },
-    // { name: "featured", type: "boolean", initialValue: false },
+    
   ],
 };
