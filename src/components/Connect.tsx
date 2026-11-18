@@ -58,7 +58,7 @@ export default function Connect({ person }: { person: any }) {
             textDecoration: "none",
             marginBottom: 48,
             maxWidth: "100%", // <-- Mencegah tombol melebar keluar batas
-            wordBreak: "break-all", // <-- Memaksa teks panjang turun ke bawah jika sempit
+            whiteSpace: "nowrap",
           }}
         >
           <SocialIcon platform="email" />
