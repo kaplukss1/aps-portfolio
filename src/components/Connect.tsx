@@ -36,7 +36,7 @@ export default function Connect({ person }: { person: any }) {
         maxWidth: 600,
         lineHeight: 1.6
       }}>
-        Saat ini saya terbuka untuk peluang kerja penuh waktu, proyek freelance, atau sekadar berdiskusi tentang desain dan teknologi. Mari terhubung!
+        I am currently open to full-time job opportunities, freelance projects, or simply having a discussion about design and technology. Let’s connect!
       </p>
 
       {/* Tombol Email Utama */}
@@ -53,8 +53,8 @@ export default function Connect({ person }: { person: any }) {
             borderRadius: 999,
             background: "var(--fg)",
             color: "var(--bg)",
-            fontSize: 18,
-            fontWeight: 600,
+            fontSize: 16,
+            fontWeight: 550,
             textDecoration: "none",
             marginBottom: 48,
             maxWidth: "100%", // <-- Mencegah tombol melebar keluar batas
