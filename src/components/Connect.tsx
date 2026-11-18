@@ -7,8 +7,8 @@ export default function Connect({ person }: { person: any }) {
       style={{
         width: "100%",
         maxWidth: 1000,
-        margin: "0px auto 6px",
-        padding: "20px 10px",
+        margin: "0 auto 80px",
+        padding: "80px 32px",
         borderRadius: 24,
         border: "1px solid var(--border)",
         display: "flex",
@@ -23,13 +23,13 @@ export default function Connect({ person }: { person: any }) {
         fontSize: "clamp(32px, 5vw, 48px)",
         fontWeight: 800,
         letterSpacing: "-0.03em",
-        marginBottom: 30,
+        marginBottom: 16,
         color: "var(--fg)"
       }}>
         Let's build something great.
       </h2>
 
-      {/* <p style={{
+      <p style={{
         fontSize: "clamp(16px, 2vw, 18px)",
         color: "var(--fg-muted)",
         marginBottom: 40,
@@ -37,7 +37,7 @@ export default function Connect({ person }: { person: any }) {
         lineHeight: 1.6
       }}>
         Saat ini saya terbuka untuk peluang kerja penuh waktu, proyek freelance, atau sekadar berdiskusi tentang desain dan teknologi. Mari terhubung!
-      </p> */}
+      </p>
 
       {/* Tombol Email Utama */}
       {person?.email && (
@@ -47,6 +47,7 @@ export default function Connect({ person }: { person: any }) {
           style={{
             display: "inline-flex",
             alignItems: "center",
+            justifyContent: "center",
             gap: 12,
             padding: "16px 32px",
             borderRadius: 999,
@@ -56,6 +57,8 @@ export default function Connect({ person }: { person: any }) {
             fontWeight: 600,
             textDecoration: "none",
             marginBottom: 48,
+            maxWidth: "100%", // <-- Mencegah tombol melebar keluar batas
+            wordBreak: "break-all", // <-- Memaksa teks panjang turun ke bawah jika sempit
           }}
         >
           <SocialIcon platform="email" />
@@ -90,7 +93,7 @@ export default function Connect({ person }: { person: any }) {
         })}
       </div>
 
-      {/* CSS Animasi & Gradient */}
+      {/* CSS Animasi, Gradient & Perbaikan Mobile */}
       <style>{`
         .connect-container {
           background: linear-gradient(135deg, rgba(224, 242, 254, 0.6) 0%, rgba(243, 232, 255, 0.4) 50%, var(--bg) 100%);
@@ -115,6 +118,19 @@ export default function Connect({ person }: { person: any }) {
           border-color: var(--fg-muted);
           background: var(--bg);
           transform: translateY(-2px);
+        }
+
+        /* === PERBAIKAN KHUSUS MOBILE === */
+        @media (max-width: 640px) {
+          .connect-container {
+            padding: 48px 16px; /* Kurangi padding di HP agar kotak lebih lebar */
+          }
+          .email-btn {
+            font-size: 14px !important; /* Perkecil ukuran teks email */
+            padding: 12px 20px !important;
+            width: 100%; /* Tombol email memenuhi lebar kotak */
+            border-radius: 12px !important; /* Ubah jadi agak kotak agar teks muat */
+          }
         }
       `}</style>
     </div>
