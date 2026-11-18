@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import ConditionalLayout from "@/components/ConditionalLayout";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aps-portfolio-gules.vercel.app"), // GANTI URL INI
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </ConditionalLayout>
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
