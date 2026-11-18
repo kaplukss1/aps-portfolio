@@ -7,10 +7,10 @@ export default function Navbar() {
   const path = usePathname();
 
   const links = [
-    { href: "/", label: "Home", icon: "🏠" },
-    { href: "/about", label: "About", icon: "👤" },
-    { href: "/projects", label: "Work", icon: "💼" },
-    { href: "/blog", label: "Blog", icon: "📝" },
+    { href: "/", label: "Home", icon: "/icons/home.svg" },
+    { href: "/about", label: "About", icon: "/icons/user.svg" },
+    { href: "/projects", label: "Work", icon: "/icons/work.svg" },
+    { href: "/blog", label: "Blog", icon: "/icons/blog.svg" },
   ];
 
   return (
@@ -43,7 +43,18 @@ export default function Navbar() {
               color: isActive ? "var(--fg)" : "var(--fg-muted)",
               transition: "all 0.2s"
             }}>
-              <span style={{ fontSize: 16 }}>{l.icon}</span>
+              {/* 2. Ganti <span> emoji menjadi tag <img> */}
+              <img 
+                src={l.icon} 
+                alt={l.label} 
+                style={{ 
+                  width: 16, 
+                  height: 16, 
+                  objectFit: "contain",
+                  // Trik agar SVG hitam otomatis jadi putih saat Dark Mode
+                  filter: "var(--icon-filter, none)" 
+                }} 
+              />
               <span className="nav-label">{l.label}</span>
             </Link>
           );
